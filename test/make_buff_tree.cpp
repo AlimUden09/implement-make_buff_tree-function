@@ -7,11 +7,11 @@
 #define MAKE_BUFF_TREES_FUNC_DEBUG
 
 std::vector<std::vector<std::string>> test_copy_tokens{ {"A1","0","M","0","A1.lenth"},
-														{"A1","0","M","0","A1.lenth"},
-														{"A1","0","M","0","A1.lenth"},
-														{"A1","0","M","0","A1.lenth"},
-														{"A1","0","M","0","A1.lenth"}
-														,{"A1","0","M","0","A1.lenth"} };
+														{"A2","0","M","0","A1.lenth"},
+														{"A3","0","M","0","A1.lenth"},
+														{"A4","0","M2","0","A1.lenth"},
+														{"A5","0","M2","0","A1.lenth"}
+														,{"A6","0","M3","0","A1.lenth"} };
 
 auto print_map = [](std::pair<size_t, std::string> p) {
 	fmt::print("{} : {}\n", p.first, p.second);
@@ -48,7 +48,7 @@ std::optional<std::vector< std::map<size_t, std::string> > > make_buff_tree(cons
 				if (vec_tokens[2] == main_tokens[i])
 				{
 					buff_tree.insert(std::make_pair(i, vec_tokens[2]));
-					buff_tree.insert(std::make_pair(count, vec_tokens[2]));
+					buff_tree.insert(std::make_pair(count, vec_tokens[0]));
 					count++;
 				}
 			}
