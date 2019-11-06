@@ -40,23 +40,22 @@ std::optional<std::vector< std::map<size_t, std::string> > > make_buff_tree(cons
 	else
 	{
 		buff_trees_vector.reserve(main_tokens_size);
-		size_t count = 1;
+		size_t count = 0;
 		for (size_t i = 0; i < main_tokens_size; i++)
 		{
 			for (const auto& vec_tokens : copy_tokens)
 			{
 				if (vec_tokens[2] == main_tokens[i])
 				{
-					buff_tree.insert(std::make_pair(i, vec_tokens[2]));
-					buff_tree.insert(std::make_pair(count, vec_tokens[0]));
+					buff_tree.insert(std::make_pair(count, vec_tokens[2]));
 					count++;
+					buff_tree.insert(std::make_pair(count, vec_tokens[0]));
 				}
 			}
 			buff_trees_vector.push_back(buff_tree);
+			count = 0;
 			buff_tree.clear();
 		}
-
-
 #ifdef MAKE_BUFF_TREES_FUNC_DEBUG
 		fmt::print("Buffer tree\n");
 		for (const auto& var : buff_trees_vector) {
@@ -68,8 +67,6 @@ std::optional<std::vector< std::map<size_t, std::string> > > make_buff_tree(cons
 
 		return (buff_trees_vector);
 	}
-	
-
 }
 
 int main(int argc, char** argv)
