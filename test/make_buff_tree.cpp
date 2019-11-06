@@ -63,7 +63,7 @@ std::optional<std::vector< std::map<size_t, std::string> > > make_buff_tree(cons
 			ranges::for_each(var, print_map);
 			fmt::print("____________\n");
 		}
-		fmt::print("Buffer tree is end size of Buffer tree: {}\n", buff_trees_vector);
+		fmt::print("Buffer tree is end size of Buffer tree: {}\n", buff_trees_vector.size());
 #endif // MAKE_BUFF_TREES_FUNC_DEBUG
 
 		return (buff_trees_vector);
